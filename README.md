@@ -7,7 +7,7 @@ Create the files *local.php*, *acl.auth.php* and *users.auth.php* according to [
 
 Create a Dockerfile in the same directory as your configuration files:
 
-    FROM kopis/dokuwiki
+    FROM moritanosuke/dokuwiki-docker
 
 Build the Dockerfile:
 
@@ -19,9 +19,19 @@ Start your wiki:
 
 Now you can access your dokuwiki at http://localhost:8080
 
-If you want to store the data on your host filesystem, provide a volume for */dokuwiki-data*:
+Backup your data
+----------------
 
-    docker run -d --name some-dokuwiki -v /etc/dokuwiki-data:/dokuwiki-data -p 8080:80 yourname/dokuwiki
+To get a copy of your wiki data, run the following command when the dokuwiki container is up:
+
+    docker cp some-dokuwiki:/dokuwiki-data .
+
+Restore your data
+-----------------
+
+After you started a new dokuwiki container, you can restore your previous backup with the following command:
+
+    docker cp dokuwiki-data some-new-dokuwiki:/
 
 [0]: https://www.dokuwiki.org/
 [1]: http://alpinelinux.org/
