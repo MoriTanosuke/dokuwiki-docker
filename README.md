@@ -1,4 +1,4 @@
-This is a minimal docker image for [DokuWiki][0]. It is build from [Alpine Linux][1] for minimal size.
+This is a minimal docker image for [DokuWiki][0]. It is build from [Alpine Linux][1] for minimal size. No HTTP server is used, *php* is used to serve all content. This reduces the image size further, but the image does not support *.htaccess* files and other functionality. Most likely you want to run a reverse proxy with more functionality in front.
 
 [![](https://badge.imagelayers.io/moritanosuke/dokuwiki-docker:latest.svg)](https://imagelayers.io/?images=moritanosuke/dokuwiki-docker:latest 'Get your own badge on imagelayers.io')
 
