@@ -1,5 +1,7 @@
 This is a minimal docker image for [DokuWiki][0]. It is build from [Alpine Linux][1] for minimal size.
 
+[![](https://badge.imagelayers.io/moritanosuke/dokuwiki-docker:latest.svg)](https://imagelayers.io/?images=moritanosuke/dokuwiki-docker:latest 'Get your own badge on imagelayers.io')
+
 How to use
 ----------
 
