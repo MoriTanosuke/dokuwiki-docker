@@ -37,4 +37,4 @@ After you started a new dokuwiki container, you can restore your previous backup
 
 [0]: https://www.dokuwiki.org/
 [1]: http://alpinelinux.org/
-
+[2]: https://www.dokuwiki.org/config#configuration_options
