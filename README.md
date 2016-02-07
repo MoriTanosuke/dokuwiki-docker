@@ -9,7 +9,7 @@ Create the files *local.php*, *acl.auth.php* and *users.auth.php* according to [
 
 Create a Dockerfile in the same directory as your configuration files:
 
-    FROM moritanosuke/dokuwiki-docker
+    FROM moritanosuke/dokuwiki-docker:onbuild
 
 Build the Dockerfile:
 
