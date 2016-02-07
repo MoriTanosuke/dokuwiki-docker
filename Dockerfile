@@ -15,10 +15,5 @@ RUN	curl -o dokuwiki.tar.gz http://download.dokuwiki.org/src/dokuwiki/dokuwiki-s
 
 ADD	preload.php /www/inc/preload.php
 
-# add local configuration onbuild from the user
-ONBUILD ADD	local.php /dokuwiki-conf/
-ONBUILD ADD	users.auth.php /dokuwiki-conf/
-ONBUILD ADD	acl.auth.php /dokuwiki-conf/
-
 CMD	["php", "-S", "0.0.0.0:80", "-t", "/www/"]
 
