@@ -5,6 +5,8 @@ This is a minimal docker image for [DokuWiki][0]. It is build from [Alpine Linux
 How to use
 ----------
 
+**Notice** If you want to modify the *DokuWiki*, use the tag `onbuild` instead of `latest`.
+
 Create the files *local.php*, *acl.auth.php* and *users.auth.php* according to [DokuWiki documentation][2]. They will be added when you build your own image.
 
 Create a Dockerfile in the same directory as your configuration files:
