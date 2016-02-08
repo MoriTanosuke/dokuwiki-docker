@@ -13,7 +13,15 @@ RUN	curl -o dokuwiki.tar.gz http://download.dokuwiki.org/src/dokuwiki/dokuwiki-s
 	&& mv /www/conf /dokuwiki-conf \
 	&& rm dokuwiki.tar.gz
 
+# add preload.php to move conf directory
 ADD	preload.php /www/inc/preload.php
+
+# add directories
+RUN	mkdir -p /dokuwiki-conf
+RUN	mkdir -p /dokuwiki-data
+
+# create local.php with necessary configuration
+RUN	echo "<?php \$conf['savedir'] = '/dokuwiki-data';" > /dokuwiki-conf/local.php
 
 CMD	["php", "-S", "0.0.0.0:80", "-t", "/www/"]
 
