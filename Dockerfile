@@ -1,4 +1,4 @@
-FROM	alpine
+FROM	alpine:3.3
 MAINTAINER Carsten Ringe <carsten@kopis.de>
 
 EXPOSE	80
