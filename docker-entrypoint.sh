@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION=dokuwiki-2015-08-10a
+VERSION=dokuwiki-2016-06-26a
 BASE_DIR=/$VERSION
 
 # wipe previous installation
