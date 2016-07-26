@@ -1,10 +1,10 @@
-FROM	alpine:3.3
+FROM	alpine:3.4
 MAINTAINER Carsten Ringe <carsten@kopis.de>
 
 EXPOSE	80
 VOLUME	["/dokuwiki-data", "/dokuwiki-conf"]
 
-RUN	apk update && apk add -U php-cli php-mysqli php-ctype php-xml php-gd php-zlib php-openssl php-curl php-opcache php-json php-ldap curl
+RUN	apk update && apk add -U php5-cli php5-mysqli php5-ctype php5-xml php5-gd php5-zlib php5-openssl php5-curl php5-opcache php5-json php5-ldap curl
 
 ADD	docker-entrypoint.sh /docker-entrypoint.sh
 
