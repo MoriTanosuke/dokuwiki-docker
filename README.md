@@ -1,6 +1,6 @@
 This is a minimal docker image for [DokuWiki][0]. It is build from [Alpine Linux][1] for minimal size. No HTTP server is used, *php* is used to serve all content. This reduces the image size further, but the image does not support *.htaccess* files and other functionality. Most likely you want to run a reverse proxy with more functionality in front.
 
-[![](https://images.microbadger.com/badges/image/moritanosuke/dokuwiki-docker.svg)](https://microbadger.com/images/moritanosuke/dokuwiki-docker "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/moritanosuke/dokuwiki-docker.svg)](https://microbadger.com/images/moritanosuke/dokuwiki-docker)
 
 How to use
 ----------
