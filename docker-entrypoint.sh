@@ -8,7 +8,7 @@ rm -rf $BASE_DIR
 mkdir $BASE_DIR
 
 # download dokuwiki
-curl -qo /dokuwiki.tar.gz http://download.dokuwiki.org/src/dokuwiki/$VERSION.tgz \
+curl -qo /dokuwiki.tar.gz https://download.dokuwiki.org/src/dokuwiki/$VERSION.tgz \
 	&& tar xzf /dokuwiki.tar.gz -C / \
 	&& rm /dokuwiki.tar.gz
 
