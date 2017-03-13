@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION=dokuwiki-2016-06-26a
+VERSION=dokuwiki-2017-02-19b
 BASE_DIR=/$VERSION
 
 # wipe previous installation
@@ -8,7 +8,7 @@ rm -rf $BASE_DIR
 mkdir $BASE_DIR
 
 # download dokuwiki
-curl -qo /dokuwiki.tar.gz https://download.dokuwiki.org/src/dokuwiki/$VERSION.tgz \
+curl -Lqo /dokuwiki.tar.gz http://download.dokuwiki.org/src/dokuwiki/$VERSION.tgz \
 	&& tar xzf /dokuwiki.tar.gz -C / \
 	&& rm /dokuwiki.tar.gz
 
