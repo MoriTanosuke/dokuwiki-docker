@@ -14,6 +14,9 @@ curl -Lqo /dokuwiki.tar.gz http://download.dokuwiki.org/src/dokuwiki/$VERSION.tg
 
 # move directories out of web root
 mv $BASE_DIR/data/* /dokuwiki-data/
+mv $BASE_DIR/lib/plugins/* /dokuwiki-plugins/
+rm -rf $BASE_DIR/lib/plugins/
+ln -s /dokuwiki-plugins $BASE_DIR/lib/plugins
 
 #do not replace the configs if we find existing ones
 if [ ! -f "/dokuwiki-conf/local.php" ]; then
