@@ -14,14 +14,23 @@ curl -Lqo /dokuwiki.tar.gz http://download.dokuwiki.org/src/dokuwiki/$VERSION.tg
 
 # move directories out of web root
 mv $BASE_DIR/data/* /dokuwiki-data/
-mv $BASE_DIR/conf/* /dokuwiki-conf/
+mv $BASE_DIR/lib/plugins/* /dokuwiki-plugins/
+rm -rf $BASE_DIR/lib/plugins/
+ln -s /dokuwiki-plugins $BASE_DIR/lib/plugins
 
+#do not replace the configs if we find existing ones
+if [ ! -f "/dokuwiki-conf/local.php" ]; then
+ echo "creating initial config ...";
+ mv $BASE_DIR/conf/* /dokuwiki-conf/
+fi
 # create preload.php
 cat << EOF > $BASE_DIR/inc/preload.php
 <?php
 define('DOKU_CONF','/dokuwiki-conf/');
 EOF
 
+#only change the config if we don't find existing ones
+if [ ! -f "/dokuwiki-conf/local.php" ]; then
 # add savedir option to local configuration
 cat << EOF > /dokuwiki-conf/local.php
 <?php
@@ -40,7 +49,7 @@ EOF
 cat << EOF > /dokuwiki-conf/users.auth.php
 admin:21232f297a57a5a743894a0e4a801fc3:admin:admin@localhost:admin,users,devel,support
 EOF
-
+fi
 # run dokuwiki
 php -S 0.0.0.0:80 -t $BASE_DIR/
 
