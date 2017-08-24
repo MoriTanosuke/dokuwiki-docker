@@ -2,7 +2,7 @@ FROM	alpine:3.4
 MAINTAINER Carsten Ringe <carsten@kopis.de>
 
 EXPOSE	80
-VOLUME	["/dokuwiki-data", "/dokuwiki-conf"]
+VOLUME	["/dokuwiki-data", "/dokuwiki-conf", "/dokuwiki-plugins"]
 ARG	VERSION=dokuwiki-2017-02-19e
 ENV	VERSION=$VERSION
 
