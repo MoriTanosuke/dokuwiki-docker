@@ -3,6 +3,8 @@ MAINTAINER Carsten Ringe <carsten@kopis.de>
 
 EXPOSE	80
 VOLUME	["/dokuwiki-data", "/dokuwiki-conf"]
+ARG	VERSION=dokuwiki-2017-02-19e
+ENV	VERSION=$VERSION
 
 RUN	apk update && apk add -U php5-cli php5-mysqli php5-ctype php5-xml php5-gd php5-zlib php5-openssl php5-curl php5-opcache php5-json php5-ldap curl
 

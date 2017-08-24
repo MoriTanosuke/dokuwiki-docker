@@ -1,16 +1,20 @@
 #!/bin/sh
+set -e
 
-VERSION=dokuwiki-2017-02-19b
+VERSION=${VERSION:-dokuwiki-stable}
 BASE_DIR=/$VERSION
 
 # wipe previous installation
 rm -rf $BASE_DIR
 mkdir $BASE_DIR
 
+echo Downloading ${VERSION}
 # download dokuwiki
 curl -Lqo /dokuwiki.tar.gz http://download.dokuwiki.org/src/dokuwiki/$VERSION.tgz \
 	&& tar xzf /dokuwiki.tar.gz -C / \
 	&& rm /dokuwiki.tar.gz
+
+set +e
 
 # move directories out of web root
 mv $BASE_DIR/data/* /dokuwiki-data/
