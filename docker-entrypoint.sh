@@ -55,5 +55,5 @@ admin:21232f297a57a5a743894a0e4a801fc3:admin:admin@localhost:admin,users,devel,s
 EOF
 fi
 # run dokuwiki
-php -S 0.0.0.0:80 -t $BASE_DIR/
+php5 -S 0.0.0.0:80 -t $BASE_DIR/
 
