@@ -1,5 +1,7 @@
 This is a minimal docker image for [DokuWiki][0]. It is build from [Alpine Linux][1] for minimal size. No HTTP server is used, *php* is used to serve all content. This reduces the image size further, but the image does not support *.htaccess* files and other functionality. Most likely you want to run a reverse proxy with more functionality in front.
 
+You can find the image [on the Docker Hub][3] and the sources [on GitHub][4].
+
 [![](https://images.microbadger.com/badges/image/moritanosuke/dokuwiki-docker.svg)](https://microbadger.com/images/moritanosuke/dokuwiki-docker)
 
 How to use
@@ -40,3 +42,5 @@ After you started a new dokuwiki container, you can restore your previous backup
 [0]: https://www.dokuwiki.org/
 [1]: http://alpinelinux.org/
 [2]: https://www.dokuwiki.org/config#configuration_options
+[3]: https://hub.docker.com/r/moritanosuke/dokuwiki-docker/
+[4]: https://github.com/MoriTanosuke/dokuwiki-docker
