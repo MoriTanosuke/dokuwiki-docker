@@ -7,37 +7,30 @@ You can find the image [on the Docker Hub][3] and the sources [on GitHub][4].
 How to use
 ----------
 
-**Notice** If you want to modify the *DokuWiki*, use the tag `onbuild` instead of `latest`.
+Create volumes for data and configuration:
 
-Create the files *local.php*, *acl.auth.php* and *users.auth.php* according to [DokuWiki documentation][2]. They will be added when you build your own image.
-
-Create a Dockerfile in the same directory as your configuration files:
-
-    FROM moritanosuke/dokuwiki-docker:onbuild
-
-Build the Dockerfile:
-
-    docker build -t yourname/dokuwiki .
+    docker volume create dokuwiki_conf
+    docker volume create dokuwiki_data
 
 Start your wiki:
 
-    docker run -d --name some-dokuwiki -p 8080:80 yourname/dokuwiki
+    docker run -d --name some-dokuwiki -p 8080:80 -v dokuwiki_conf:/dokuwiki-conf -v dokuwiki_data:/dokuwiki-data moritanosuke/dokuwiki-docker
 
 Now you can access your dokuwiki at http://localhost:8080
 
 Backup your data
 ----------------
 
-To get a copy of your wiki data, run the following command when the dokuwiki container is up:
+To get a copy of your wiki data, run the following command:
 
-    docker cp some-dokuwiki:/dokuwiki-data .
+    docker run --rm -v dokuwiki_data:/data -v $(pwd):/backup alpine:latest tar czf /backup/dokuwiki-data.tgz /data
 
 Restore your data
 -----------------
 
 After you started a new dokuwiki container, you can restore your previous backup with the following command:
 
-    docker cp dokuwiki-data some-new-dokuwiki:/
+    docker run --rm -v dokuwiki_data:/data -v $(pwd):/backup alpine:latest tar xzf /backup/dokuwiki-data.tgz /data
 
 [0]: https://www.dokuwiki.org/
 [1]: http://alpinelinux.org/
