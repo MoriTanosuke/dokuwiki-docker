@@ -54,6 +54,9 @@ cat << EOF > /dokuwiki-conf/users.auth.php
 admin:21232f297a57a5a743894a0e4a801fc3:admin:admin@localhost:admin,users,devel,support
 EOF
 fi
+
+# remove unused files
+grep -Ev '^($|#)' /dokuwiki-data/deleted.files | xargs -n 1 rm -f
+
 # run dokuwiki
 php5 -S 0.0.0.0:80 -t $BASE_DIR/
-
