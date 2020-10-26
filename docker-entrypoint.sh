@@ -17,15 +17,15 @@ curl -Lqo /dokuwiki.tar.gz http://download.dokuwiki.org/src/dokuwiki/$VERSION.tg
 set +e
 
 # move directories out of web root
-mv $BASE_DIR/data/* /dokuwiki-data/
-mv $BASE_DIR/lib/plugins/* /dokuwiki-plugins/
+cp -af $BASE_DIR/data/* /dokuwiki-data/
+cp -af $BASE_DIR/lib/plugins/* /dokuwiki-plugins/
 rm -rf $BASE_DIR/lib/plugins/
 ln -s /dokuwiki-plugins $BASE_DIR/lib/plugins
 
 #do not replace the configs if we find existing ones
 if [ ! -f "/dokuwiki-conf/local.php" ]; then
  echo "creating initial config ...";
- mv $BASE_DIR/conf/* /dokuwiki-conf/
+ cp -af $BASE_DIR/conf/* /dokuwiki-conf/
 fi
 # create preload.php
 cat << EOF > $BASE_DIR/inc/preload.php
