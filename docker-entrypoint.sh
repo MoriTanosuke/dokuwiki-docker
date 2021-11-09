@@ -28,7 +28,7 @@ if [ ! -f "/dokuwiki-conf/local.php" ]; then
  cp -af $BASE_DIR/conf/* /dokuwiki-conf/
 fi
 # create preload.php
-cat << EOF > $BASE_DIR/inc/preload.php
+cat << EOF > $BASE_DIR/inc/preload.php:q:
 <?php
 define('DOKU_CONF','/dokuwiki-conf/');
 EOF
@@ -59,4 +59,4 @@ fi
 grep -Ev '^($|#)' /dokuwiki-data/deleted.files | xargs -n 1 rm -f
 
 # run dokuwiki
-php5 -S 0.0.0.0:80 -t $BASE_DIR/
+php7 -S 0.0.0.0:80 -t $BASE_DIR/
